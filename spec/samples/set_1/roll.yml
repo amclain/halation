@@ -1,0 +1,40 @@
+---
+date: "2016-01-01" # default
+camera: "rz67"
+lens: 110 # default
+iso: 100
+frames:
+  - number: 1
+    date: "2016-01-02" # overridden
+    lens: 180 # overridden
+    shutter: 250 # interpreted as 1/250 -- then how does it know what 25s is? by the "s"?
+    aperture: 8
+    flash: no
+    orientation: 0 # TODO (4 options)
+  - number: 2
+    shutter: 0.5
+    aperture: 8
+  - number: 3
+    shutter: 250
+    aperture: 8
+  - number: 4
+    shutter: 250
+    aperture: 8
+  - number: 5
+    shutter: 250
+    aperture: 8
+  - number: 6
+    shutter: 250
+    aperture: 8
+  - number: 7
+    shutter: 250
+    aperture: 8
+  - number: 8
+    shutter: 250
+    aperture: 8
+  - number: 9
+    shutter: 250
+    aperture: 8
+  - number: 10
+    shutter: 250
+    aperture: 8

@@ -1,0 +1,14 @@
+---
+artist: "Test Artist"
+copyright: "#{year} Test Artist"
+cameras:
+  - tag: "rz67"
+    make: "Mamiya"
+    model: "Mamiya RZ67 Pro II"
+    lenses:
+      - tag: 110
+        model: "Z110mm f/2.8W"
+        focal_length: 110
+      - tag: 180
+        model: "Z180mm f/4.5W-N"
+        focal_length: 180
