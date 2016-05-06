@@ -1,4 +1,5 @@
 require 'yaml'
+require 'halation/coerce'
 require 'halation/camera'
 
 module Halation
@@ -24,8 +25,8 @@ module Halation
       reset
 
       YAML.load_file(file_path).tap do |config|
-        @artist = config["artist"]
-        @copyright = config["copyright"]
+        @artist = Coerce.string(config["artist"])
+        @copyright = Coerce.string(config["copyright"])
 
         (config["cameras"] || []).each do |camera|
           @cameras << Camera.new(camera)
