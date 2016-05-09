@@ -10,5 +10,10 @@ module Halation
     def self.integer(value)
       value &&= value.to_i
     end
+
+    # @return [Boolean]
+    def self.boolean(value)
+      !!value
+    end
   end
 end

@@ -33,7 +33,7 @@ describe Halation::Config do
         camera.model.should eq "Mamiya RZ67 Pro II"
 
         lenses = camera.lenses
-        lenses.count.should eq 2
+        lenses.count.should eq 3
 
         lenses.each_with_index do |lens, i|
           case i
@@ -45,6 +45,10 @@ describe Halation::Config do
             lens.tag.should eq "180"
             lens.model.should eq "Z180mm f/4.5W-N"
             lens.focal_length.should eq 180
+          when 2
+            lens.tag.should eq "100-200"
+            lens.model.should eq "Z100-200mm f/5.2W"
+            lens.focal_length.should be nil
           end
         end
       end

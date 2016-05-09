@@ -32,7 +32,8 @@ frames:
   - number: 1
     date: "2016-01-02" # overridden
     lens: 250 # overridden
-    shutter: 250 # interpreted as 1/250 -- then how does it know what 25s is? by the "s"?
+    shutter: "1/250" # 250 interpreted as 1/250 -- then how does it know what 25s is? by the "s"?
+                 # NOTE: use "1/125" format for now and add the shorthand as an opt-in
     aperture: 8
     flash: no
     orientation: "todo (4 options)"
@@ -42,26 +43,26 @@ frames:
     shutter: 0.5
     aperture: 8
   - number: 3
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 4
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 5
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 6
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 7
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 8
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 9
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 10
-    shutter: 250
+    shutter: "1/250"
     aperture: 8

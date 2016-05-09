@@ -12,3 +12,5 @@ cameras:
       - tag: 180
         model: "Z180mm f/4.5W-N"
         focal_length: 180
+      - tag: "100-200"
+        model: "Z100-200mm f/5.2W"

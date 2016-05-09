@@ -1,4 +1,6 @@
 ---
+artist: "Me"
+copyright: "2016 Me"
 date: "2016-01-01" # default
 camera: "rz67"
 lens: 110 # default
@@ -7,34 +9,37 @@ frames:
   - number: 1
     date: "2016-01-02" # overridden
     lens: 180 # overridden
-    shutter: 250 # interpreted as 1/250 -- then how does it know what 25s is? by the "s"?
+    shutter: "1/250"
     aperture: 8
     flash: no
     orientation: 0 # TODO (4 options)
   - number: 2
+    lens: "100-200"
+    focal_length: 135
     shutter: 0.5
     aperture: 8
+    flash: yes
   - number: 3
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 4
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 5
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 6
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 7
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 8
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 9
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
   - number: 10
-    shutter: 250
+    shutter: "1/250"
     aperture: 8
