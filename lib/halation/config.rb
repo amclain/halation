@@ -1,6 +1,6 @@
 require 'yaml'
-require 'halation/coerce'
-require 'halation/config/camera'
+require_relative 'coerce'
+require_relative 'config/camera'
 
 module Halation
   # Application-wide configuraton.

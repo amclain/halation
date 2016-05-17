@@ -1,4 +1,4 @@
-require 'halation/coerce'
+require_relative '../coerce'
 
 module Halation
   class Roll

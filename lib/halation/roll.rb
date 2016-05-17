@@ -1,6 +1,6 @@
 require 'yaml'
-require 'halation/coerce'
-require 'halation/roll/frame'
+require_relative 'coerce'
+require_relative 'roll/frame'
 
 module Halation
   # Settings for a roll of film.

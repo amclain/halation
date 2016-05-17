@@ -1,5 +1,5 @@
-require 'halation/coerce'
-require 'halation/config/lens'
+require_relative '../coerce'
+require_relative 'lens'
 
 module Halation
   class Config
