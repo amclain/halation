@@ -6,7 +6,13 @@ describe Halation::Script do
   end
 
   describe "has a flag for" do
-    subject { Halation::Script.run(args, output_stream) }
+    subject {
+      Halation::Script.run(
+        args: args,
+        output_stream: output_stream,
+        skip_exit: true
+      )
+    }
 
     let(:output_stream) {
       double().tap do |d|

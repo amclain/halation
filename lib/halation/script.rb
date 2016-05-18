@@ -5,8 +5,16 @@ module Halation
   class Script
     private_class_method :new
 
-    # Parses ARGV.
-    def self.run(args = ARGV, output_stream = STDOUT)
+    # @option opts [Boolean] :args (ARGV)
+    # @option opts [Boolean] :output_stream (STDOUT)
+    # @option opts [Boolean] :skip_exit (false)
+    #   Don't exit the program after calling a handler that would normally exit.
+    #   Used for unit testing.
+    def self.run(opts = {})
+      args = opts[:args] || ARGV
+      output_stream = opts[:output_stream] || STDOUT
+      skip_exit = !!opts[:skip_exit]
+
       options = {}
 
       OptionParser.new { |opts|
@@ -23,26 +31,24 @@ module Halation
 
         opts.on("-h", "--help", "Print this help") do
           output_stream.puts opts
-          exit
+          exit unless skip_exit
         end
 
         opts.on("-p", "--print-config", "Print the configuration settings") do
           # TODO: Implement
           raise NotImplementedError
-          exit
+          exit unless skip_exit
         end
 
         opts.on("-r", "--recursive", "Traverse into subdirectories") do
           # TODO: Implement
           raise NotImplementedError
-          exit
         end
 
         opts.on("-v", "--version", "Print the version information") do
           output_stream.puts "halation #{Halation::VERSION}"
-          exit
+          exit unless skip_exit
         end
-
       }.parse!(args)
     end
 
