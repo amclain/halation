@@ -13,7 +13,7 @@ end
 
 desc "Build the gem"
 task :build => [:doc] do
-  Dir['*.gem'].each {|file| File.delete file}
+  Dir['*.gem'].each { |file| File.delete file }
   system 'gem build *.gemspec'
 end
 
