@@ -27,6 +27,11 @@ YARD::Rake::YardocTask.new :doc do |t|
   t.options = %w(- README.md LICENSE)
 end
 
+desc "List undocumented objects"
+YARD::Rake::YardocTask.new :undoc do |t|
+  t.stats_options = %w(--list-undoc)
+end
+
 desc "Check for 100% documentation"
 task :check_docs do
   output = ""
