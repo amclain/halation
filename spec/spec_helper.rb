@@ -2,6 +2,8 @@ require 'pry'
 require 'rspec/its'
 require 'coveralls'
 
+require_relative 'shared_examples/to_s_is_human_readable'
+
 require 'halation'
 
 Coveralls.wear!

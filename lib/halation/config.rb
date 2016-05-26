@@ -34,5 +34,13 @@ module Halation
       end
     end
 
+    # @return [String] list of configuration settings.
+    def to_s
+      [
+        "Artist: #{@artist}",
+        "Copyright: #{@copyright}",
+        @cameras.map(&:to_s)
+      ].join("\n")
+    end
   end
 end

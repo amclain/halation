@@ -35,4 +35,6 @@ describe Halation::Config::Camera do
       lens.focal_length.should eq lens_focal_length
     end
   end
+
+  shared_examples :to_s_is_human_readable
 end

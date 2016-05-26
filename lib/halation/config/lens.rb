@@ -13,6 +13,18 @@ module Halation
         @model = Coerce.string(yaml["model"])
         @focal_length = Coerce.integer(yaml["focal_length"])
       end
+
+      # @return [String]
+      def to_s
+        "Lens\n" <<
+        [
+          "Tag: #{tag}",
+          "Model: #{model}",
+          "Focal Length: #{focal_length}",
+        ]
+          .map { |line| "   #{line}" }
+          .join("\n")
+      end
     end
   end
 end

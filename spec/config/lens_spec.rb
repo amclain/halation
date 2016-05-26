@@ -14,4 +14,6 @@ describe Halation::Config::Lens do
   its(:tag) { should eq tag.to_s }
   its(:model) { should eq model.to_s }
   its(:focal_length) { should eq focal_length.to_i }
+
+  shared_examples :to_s_is_human_readable
 end

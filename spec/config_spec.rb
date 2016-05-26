@@ -20,36 +20,39 @@ describe Halation::Config do
       end
     }
 
+    let(:artist) { "Test Artist" }
+    let(:copyright) { "2016 Test Artist" }
+
+    let(:cameras) {[
+      {
+        tag: "rz67",
+        make: "Mamiya",
+        model: "Mamiya RZ67 Pro II",
+        lenses: [
+          { tag: "110", model: "Z110mm f/2.8W", focal_length: 110 },
+          { tag: "180", model: "Z180mm f/4.5W-N", focal_length: 180 },
+          { tag: "100-200", model: "Z100-200mm f/5.2W", focal_length: nil }
+        ]
+      }
+    ]}
+
     it "has values" do
-      subject.artist.should eq "Test Artist"
-      subject.copyright.should eq "2016 Test Artist"
+      subject.artist.should eq artist
+      subject.copyright.should eq copyright
 
-      cameras = subject.cameras
-      cameras.count.should eq 1
+      subject.cameras.count.should eq cameras.count
       
-      cameras.first.tap do |camera|
-        camera.tag.should eq "rz67"
-        camera.make.should eq "Mamiya"
-        camera.model.should eq "Mamiya RZ67 Pro II"
+      subject.cameras.each_with_index do |camera, i|
+        camera.tag.should eq cameras[i][:tag]
+        camera.make.should eq cameras[i][:make]
+        camera.model.should eq cameras[i][:model]
 
-        lenses = camera.lenses
-        lenses.count.should eq 3
+        camera.lenses.count.should eq cameras[i][:lenses].count
 
-        lenses.each_with_index do |lens, i|
-          case i
-          when 0
-            lens.tag.should eq "110"
-            lens.model.should eq "Z110mm f/2.8W"
-            lens.focal_length.should eq 110
-          when 1
-            lens.tag.should eq "180"
-            lens.model.should eq "Z180mm f/4.5W-N"
-            lens.focal_length.should eq 180
-          when 2
-            lens.tag.should eq "100-200"
-            lens.model.should eq "Z100-200mm f/5.2W"
-            lens.focal_length.should be nil
-          end
+        camera.lenses.each_with_index do |lens, j|
+          lens.tag.should eq cameras[i][:lenses][j][:tag]
+          lens.model.should eq cameras[i][:lenses][j][:model]
+          lens.focal_length.should eq cameras[i][:lenses][j][:focal_length]
         end
       end
     end
@@ -59,5 +62,7 @@ describe Halation::Config do
 
       include_examples "test for default values"
     end
+
+    include_examples :to_s_is_human_readable
   end
 end

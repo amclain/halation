@@ -20,6 +20,21 @@ module Halation
           @lenses << Lens.new(lens)
         end
       end
+
+      # @return [String]
+      def to_s
+        "Camera\n" <<
+        [
+          "Tag: #{tag}",
+          "Make: #{make}",
+          "Model: #{model}",
+          @lenses.map(&:to_s).join("\n")
+        ]
+          .join("\n")
+          .lines
+          .map { |line| "   #{line}" }
+          .join
+      end
     end
   end
 end
