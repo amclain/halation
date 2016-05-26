@@ -1,7 +1,7 @@
 describe Halation::Roll do
   let(:config_file) { "spec/samples/set_1/roll.yml" }
 
-  shared_examples "test for default values" do
+  shared_examples :test_for_default_values do
     it "has default values" do
       subject.artist.should be nil
       subject.copyright.should be nil
@@ -14,7 +14,7 @@ describe Halation::Roll do
   end
 
   describe "initializes default values" do
-    include_examples "test for default values"
+    include_examples :test_for_default_values
   end
 
   describe "with loaded config file" do
@@ -71,7 +71,7 @@ describe Halation::Roll do
     describe "#reset reinitializes default values" do
       before { subject.reset }
 
-      include_examples "test for default values"
+      include_examples :test_for_default_values
     end
   end
 end

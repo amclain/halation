@@ -1,7 +1,7 @@
 describe Halation::Config do
   let(:config_file) { "spec/samples/set_1/config.yml" }
 
-  shared_examples "test for default values" do
+  shared_examples :test_for_default_values do
     it "has default values" do
       subject.artist.should be nil
       subject.copyright.should be nil
@@ -14,7 +14,7 @@ describe Halation::Config do
   end
 
   describe "initializes default values" do
-    include_examples "test for default values"
+    include_examples :test_for_default_values
   end
 
   describe "with loaded config file" do
@@ -64,7 +64,7 @@ describe Halation::Config do
     describe "#reset reinitializes default values" do
       before { subject.reset }
 
-      include_examples "test for default values"
+      include_examples :test_for_default_values
     end
 
     include_examples :to_s_is_human_readable

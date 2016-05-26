@@ -12,7 +12,7 @@ describe Halation::Roll::Frame do
 
   subject { Halation::Roll::Frame.new(yaml) }
 
-  shared_examples "frame" do
+  shared_examples :frame do
     its(:number) { should eq number.to_i }
     its(:date) { should eq date.to_s }
     its(:lens) { should eq lens.to_s }
@@ -33,7 +33,7 @@ describe Halation::Roll::Frame do
     let(:flash) { false }
     let(:orientation) { 0 }
 
-    include_examples "frame"
+    include_examples :frame
   end
 
   describe "zoom lens" do
@@ -46,7 +46,7 @@ describe Halation::Roll::Frame do
     let(:flash) { true }
     let(:orientation) { 0 }
 
-    include_examples "frame"
+    include_examples :frame
   end
 
 end
