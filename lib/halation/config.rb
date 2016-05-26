@@ -5,6 +5,7 @@ require_relative 'config/camera'
 module Halation
   # Application-wide configuraton.
   class Config
+    # :nodoc:
     DEFAULT_CONFIG_PATH = File.expand_path("~/.halation/config.yml").freeze
 
     attr_reader :artist
