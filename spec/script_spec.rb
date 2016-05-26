@@ -28,6 +28,10 @@ describe Halation::Script do
       specify
     end
 
+    describe "generate config" do
+      specify
+    end
+
     describe "print config" do
       specify
     end

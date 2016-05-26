@@ -34,6 +34,12 @@ module Halation
           exit unless skip_exit
         end
 
+        opts.on("--generate-config", "Generate a new config file") do |path|
+          # TODO: Implement
+          raise NotImplementedError
+          exit unless skip_exit
+        end
+
         opts.on("-p", "--print-config", "Print the configuration settings") do
           # TODO: Implement
           raise NotImplementedError
