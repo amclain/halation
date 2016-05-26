@@ -5,6 +5,8 @@ require_relative 'config/camera'
 module Halation
   # Application-wide configuraton.
   class Config
+    DEFAULT_CONFIG_PATH = File.expand_path("~/.halation/config.yml").freeze
+
     attr_reader :artist
     attr_reader :copyright
     attr_reader :cameras
@@ -21,7 +23,9 @@ module Halation
     end
 
     # Load the configuration from a YAML file.
-    def load_file(file_path)
+    def load_file(file_path = nil)
+      file_path ||= DEFAULT_CONFIG_PATH
+
       reset
 
       YAML.load_file(file_path).tap do |config|

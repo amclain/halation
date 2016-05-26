@@ -9,6 +9,10 @@ describe Halation::Config do
     end
   end
 
+  it "has a default config path" do
+    Halation::Config::DEFAULT_CONFIG_PATH.should be_kind_of String
+  end
+
   describe "initializes default values" do
     include_examples "test for default values"
   end
