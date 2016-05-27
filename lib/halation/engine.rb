@@ -1,4 +1,6 @@
 require_relative 'config'
+require_relative 'roll'
+require_relative 'tools/exif_tool/image'
 
 module Halation
   # Performs modifications to the image Exif data.

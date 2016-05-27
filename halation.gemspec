@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
     'halation',
   ]
 
+  s.add_dependency 'mini_exiftool', '~> 2.7', '>= 2.7.2'
+
   s.add_development_dependency 'rake'
   s.add_development_dependency 'yard'
   s.add_development_dependency 'pry'
