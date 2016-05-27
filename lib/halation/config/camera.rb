@@ -5,6 +5,7 @@ module Halation
   class Config
     # A camera profile.
     class Camera
+      # A user-created ID.
       attr_reader :tag
       attr_reader :make
       attr_reader :model

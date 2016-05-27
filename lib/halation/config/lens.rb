@@ -4,6 +4,7 @@ module Halation
   class Config
     # A lens profile.
     class Lens
+      # A user-created ID.
       attr_reader :tag
       attr_reader :model
       attr_reader :focal_length
