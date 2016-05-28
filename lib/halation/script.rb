@@ -66,8 +66,7 @@ module Halation
         end
 
         opts.on("--silent", "Suppress messages to stdout.") do
-          # TODO: Implement
-          raise NotImplementedError, "Silent option is not yet implemented."
+          options[:silent] = true
         end
 
         opts.on("-v", "--version", "Print the version information") do

@@ -105,7 +105,9 @@ describe Halation::Script do
       end
 
       describe "silent" do
-        specify
+        let(:args) { %w(--silent) }
+
+        specify { subject.silent.should eq true }
       end
     end # live samples
   end
