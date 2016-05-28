@@ -37,3 +37,39 @@ Halation is available as a Ruby gem.
 ```
     gem install halation
 ```
+
+## Configuration
+
+Halation stores its global configuration data in `.halation` in the system's
+user directory. This is typically `~/.halation` on Mac and *nix-based systems,
+or `C:\Users\.halation` on Windows.
+
+>Halation uses the [YAML syntax](http://www.yaml.org/spec/1.2/spec.html#Preview)
+for its configuration files.
+
+By default Halation uses a global configuration file, `~/.halation/config.yml`.
+This is where your generic settings are stored, like your name, copyright info,
+and information about your cameras.
+
+```yaml
+---
+artist: "Example User"
+copyright: "2016 Example User"
+cameras:
+  - tag: "rz67"
+    make: "Mamiya"
+    model: "Mamiya RZ67 Pro II"
+    lenses:
+      - tag: 65
+        model: "M65mm f/4L-A"
+        focal_length: 65
+      - tag: 110
+        model: "Z110mm f/2.8W"
+        focal_length: 110
+      - tag: 180
+        model: "Z180mm f/4.5W-N"
+        focal_length: 180
+      - tag: 250
+        model: "M65mm f/4L-A"
+        focal_length: 250
+```
