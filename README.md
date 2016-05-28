@@ -73,3 +73,52 @@ cameras:
         model: "M65mm f/4L-A"
         focal_length: 250
 ```
+
+## Tags
+
+Tags are user-defined values that serve as a quick and simple way to reference
+complex information.
+
+Why is this important? Let's say you shot a roll of ten images with several
+different lenses. It would be cumbersome to have to specify a model number
+like `Z110mm f/2.8W` (and all the other lens information) on each of the frames.
+Even more importantly, if you're processing batches of images over a long period
+of time (months, years), you're bound to make mistakes in the spelling of the
+model number. This is important because any software that catalogs images based
+on Exif data (Lightroom, Flickr) doesn't know how to deal with these
+inconsistencies. This means `Z110mm f/2.8W` and `Z110mm f/2.8 W` will be
+considered two different lenses by the software (did you see the difference?),
+even though we as humans understand they're the same thing. If you try to filter
+by lens in Lightroom, some of the images will be under one spelling and some
+will be under the other, even though they were both shot with the same
+110mm lens.
+
+Tags solve this problem by letting us define all of the complex,
+infrequently-changing data in one place. We can then reference that complex
+data by its `tag`. For example, if we have a 65mm lens and a 110mm lens we can
+define their information once and tag them as `65` and `110` respectively (we
+choose the tag names).
+
+```yaml
+lenses:
+  - tag: 65
+    model: "M65mm f/4L-A"
+    focal_length: 65
+  - tag: 110
+    model: "Z110mm f/2.8W"
+    focal_length: 110
+```
+
+Now when we want to reference which lens was used when capturing a particular
+frame, all we have to do is specify the tag and Halation will fill
+in the correct Exif data for that lens.
+
+```yaml
+frames:
+  - number: 1
+    lens: 110
+  - number: 2
+    lens: 65
+  - number: 3
+    lens: 110
+```
