@@ -3,12 +3,12 @@ require 'rspec/its'
 require 'coveralls'
 require 'fileutils'
 
-require 'halation'
+Coveralls.wear!
 
 require_relative 'shared_examples/image_interface'
 require_relative 'shared_examples/to_s_is_human_readable'
 
-Coveralls.wear!
+require 'halation'
 
 RSpec.configure do |c|
   # Enable 'should' syntax
