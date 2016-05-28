@@ -4,11 +4,12 @@ require 'yard'
 task :default => [:test, :check_docs]
 
 desc "Run tests"
-RSpec::Core::RakeTask.new :test do |c|
-  # c.rspec_opts = 
-  #   '--color '\
-  #   '--format Fivemat '\
-  #   # '--fail-fast'
+RSpec::Core::RakeTask.new :test
+
+desc "Skip long running tests."
+task :test_fast do
+  ENV["SKIP_LONG_TESTS"] = "true"
+  Rake::Task[:test].execute
 end
 
 desc "Build the gem"

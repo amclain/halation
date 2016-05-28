@@ -25,7 +25,6 @@ module Halation
 
         opts.on("-c", "--config=PATH", String, "Config file path") do |config_path|
           options[:config_path] = config_path
-          p config_path
         end
 
         opts.on("--dry", "Dry run") do
@@ -64,6 +63,11 @@ module Halation
         opts.on("-r", "--recursive", "Traverse into subdirectories") do
           # TODO: Implement
           raise NotImplementedError, "Recursive option is not yet implemented."
+        end
+
+        opts.on("--silent", "Suppress messages to stdout.") do
+          # TODO: Implement
+          raise NotImplementedError, "Silent option is not yet implemented."
         end
 
         opts.on("-v", "--version", "Print the version information") do

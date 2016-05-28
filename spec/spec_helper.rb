@@ -5,8 +5,8 @@ require 'fileutils'
 
 require 'halation'
 
-require_relative 'shared_examples/to_s_is_human_readable'
 require_relative 'shared_examples/image_interface'
+require_relative 'shared_examples/to_s_is_human_readable'
 
 Coveralls.wear!
 

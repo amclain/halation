@@ -10,6 +10,9 @@ module Halation
     # Suppress output to stdout if true.
     attr_accessor :silent
 
+    attr_reader :config
+    attr_reader :roll
+
     # @see #run
     def self.run(opts = {})
       new(opts).run

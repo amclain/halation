@@ -38,5 +38,5 @@ describe Halation::ExifToolImage do
         subject[tag].should eq tag_value_2
       end
     end
-  end
+  end unless ENV["SKIP_LONG_TESTS"]
 end
