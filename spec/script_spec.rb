@@ -1,6 +1,8 @@
 describe Halation::Script do
   subject { Halation::Script }
 
+  let(:working_dir) { "spec/samples/under_test" }
+
   it "is a singleton" do
     should_not respond_to :new
   end
@@ -47,24 +49,39 @@ describe Halation::Script do
       end
     end
 
-    describe "generate config" do
-      specify
-    end
+    describe "(generated files)" do
+      around { |test|
+        FileUtils.mkdir_p(working_dir)
+        Dir.chdir(working_dir) { test.run }
+        FileUtils.rm_r(working_dir)
+      }
 
-    describe "generate roll" do
-      specify
+      describe "generate config" do
+        specify
+      end
+
+      describe "generate roll" do
+        let(:args) { %w(--new-roll) }
+        let(:roll_path) { "roll.yml" }
+
+        specify do
+          File.exists?(roll_path).should eq false
+
+          subject
+
+          File.exists?(roll_path).should eq true
+          Halation::Roll.new.load_file(roll_path)
+        end
+      end
     end
 
     describe "(live samples)" do
       let(:samples_source) { "spec/samples/set_1" }
-      let(:working_dir) { "spec/samples/under_test" }
 
       around { |test|
         FileUtils.rm_r(working_dir) if File.exists?(working_dir)
         FileUtils.cp_r(samples_source, working_dir)
-
         Dir.chdir(working_dir) { test.run }
-
         FileUtils.rm_r(working_dir)
       }
 

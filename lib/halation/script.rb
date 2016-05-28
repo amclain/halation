@@ -1,4 +1,5 @@
 require 'optparse'
+require 'fileutils'
 
 require_relative 'engine'
 
@@ -47,8 +48,7 @@ module Halation
         end
 
         opts.on("--new-roll", "Generate a new roll.yml file") do
-          # TODO: Implement
-          raise NotImplementedError, "Generate roll option is not yet implemented."
+          generate_new_roll
           run_engine = false
           exit unless skip_exit
         end
@@ -77,6 +77,73 @@ module Halation
       }.parse!(args)
       
       Halation::Engine.run(options) if run_engine
+    end
+
+    # Generate a new roll.yml file.
+    # Copies "~/.halation/templates/roll.yml" if it exists, otherwise it uses
+    # a default template.
+    def self.generate_new_roll
+      roll_path = "roll.yml"
+
+      if File.exists?(roll_path)
+        output_stream.puts "A roll.yml file already exists in this directory."
+        return
+      end
+
+      # TODO: Make this configurable from config.yml
+      roll_template_path = File.expand_path("~/.halation/templates/roll.yml")
+
+      if File.exists?(roll_template_path)
+        FileUtils.cp(roll_template_path, ".")
+      else
+        File.open(roll_path, "w") do |f|
+          f.puts new_roll_content
+        end
+      end
+    end
+
+    private
+
+    # @return [String] roll.yml default content
+    def self.new_roll_content
+      output = <<YAML
+---
+date: "2016-01-01"
+camera: "rz67"
+lens: 110
+iso: 100
+frames:
+  - number: 1
+    shutter: "1/125"
+    aperture: 8
+  - number: 2
+    shutter: "1/125"
+    aperture: 8
+  - number: 3
+    shutter: "1/125"
+    aperture: 8
+  - number: 4
+    shutter: "1/125"
+    aperture: 8
+  - number: 5
+    shutter: "1/125"
+    aperture: 8
+  - number: 6
+    shutter: "1/125"
+    aperture: 8
+  - number: 7
+    shutter: "1/125"
+    aperture: 8
+  - number: 8
+    shutter: "1/125"
+    aperture: 8
+  - number: 9
+    shutter: "1/125"
+    aperture: 8
+  - number: 10
+    shutter: "1/125"
+    aperture: 8
+YAML
     end
 
   end
