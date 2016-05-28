@@ -12,13 +12,14 @@ frames:
     shutter: "1/250"
     aperture: 8
     flash: no
-    orientation: 0 # TODO (4 options)
+    orientation: 1
   - number: 2
     lens: "100-200"
     focal_length: 135
     shutter: 0.5
     aperture: 8
     flash: yes
+    orientation: 6
   - number: 3
     shutter: "1/250"
     aperture: 8

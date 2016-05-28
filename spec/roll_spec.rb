@@ -45,7 +45,7 @@ describe Halation::Roll do
           frame.shutter.should eq "1/250"
           frame.aperture.should eq "8"
           frame.flash.should eq false
-          frame.orientation.should eq 0
+          frame.orientation.should eq 1
         when 1
           frame.number.should eq 2
           frame.date.should be nil
@@ -54,7 +54,7 @@ describe Halation::Roll do
           frame.shutter.should eq "0.5"
           frame.aperture.should eq "8"
           frame.flash.should eq true
-          frame.orientation.should eq 0
+          frame.orientation.should eq 6
         when 2
           frame.number.should eq 3
           frame.date.should be nil
@@ -63,7 +63,7 @@ describe Halation::Roll do
           frame.shutter.should eq "1/250"
           frame.aperture.should eq "8"
           frame.flash.should eq false
-          frame.orientation.should eq 0
+          frame.orientation.should be nil
         end
       end
     end

@@ -47,5 +47,6 @@ module Halation
         @cameras.map(&:to_s)
       ].join("\n")
     end
+
   end
 end

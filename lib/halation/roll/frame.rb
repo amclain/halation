@@ -21,7 +21,14 @@ module Halation
       attr_reader :aperture
       # True if flash was fired.
       attr_reader :flash
-      # @todo design & spec parameter
+      # 1 = Horizontal (normal) 
+      # 2 = Mirror horizontal 
+      # 3 = Rotate 180 
+      # 4 = Mirror vertical 
+      # 5 = Mirror horizontal and rotate 270 CW 
+      # 6 = Rotate 90 CW 
+      # 7 = Mirror horizontal and rotate 90 CW 
+      # 8 = Rotate 270 CW
       attr_reader :orientation
 
       def initialize(yaml)
@@ -32,7 +39,7 @@ module Halation
         @shutter = Coerce.string(yaml["shutter"])
         @aperture = Coerce.string(yaml["aperture"])
         @flash = Coerce.boolean(yaml["flash"])
-        @orientation = 0 # TODO: Implement
+        @orientation = Coerce.integer(yaml["orientation"])
       end
 
     end

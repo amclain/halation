@@ -26,6 +26,7 @@ module Halation
           .map { |line| "   #{line}" }
           .join("\n")
       end
+
     end
   end
 end

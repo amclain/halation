@@ -36,6 +36,7 @@ module Halation
           .map { |line| "   #{line}" }
           .join
       end
+
     end
   end
 end

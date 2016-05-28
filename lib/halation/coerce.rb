@@ -1,6 +1,7 @@
 module Halation
   # A collection of methods to coerce values into a desired type.
   class Coerce
+
     # @return [String, nil]
     def self.string(value)
       value &&= value.to_s
@@ -15,5 +16,6 @@ module Halation
     def self.boolean(value)
       !!value
     end
+
   end
 end

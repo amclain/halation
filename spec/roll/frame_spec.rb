@@ -20,7 +20,7 @@ describe Halation::Roll::Frame do
     its(:shutter) { should eq shutter.to_s }
     its(:aperture) { should eq aperture.to_s }
     its(:flash) { should eq !!flash }
-    its(:orientation) { should eq 0 } # Not yet implemented
+    its(:orientation) { should eq orientation }
   end
 
   describe "prime lens" do
@@ -31,7 +31,7 @@ describe Halation::Roll::Frame do
     let(:shutter) { 250 }
     let(:aperture) { 8 }
     let(:flash) { false }
-    let(:orientation) { 0 }
+    let(:orientation) { 1 }
 
     include_examples :frame
   end
@@ -44,7 +44,7 @@ describe Halation::Roll::Frame do
     let(:shutter) { 250 }
     let(:aperture) { 8 }
     let(:flash) { true }
-    let(:orientation) { 0 }
+    let(:orientation) { 1 }
 
     include_examples :frame
   end

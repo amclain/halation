@@ -8,7 +8,7 @@ module Halation
 
     # @param file_path [String] Path to the image file.
     def initialize(file_path)
-      @image = MiniExiftool.new(file_path)
+      @image = MiniExiftool.new(file_path, numerical: true)
     end
 
     # Read an Exif tag.
