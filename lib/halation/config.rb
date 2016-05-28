@@ -25,6 +25,7 @@ module Halation
 
     # Load the configuration from a YAML file.
     def load_file(file_path = nil)
+      file_path ||= File.expand_path("./config.yml") if File.exists?("./config.yml")
       file_path ||= DEFAULT_CONFIG_PATH
 
       reset
