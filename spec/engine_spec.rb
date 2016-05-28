@@ -151,7 +151,7 @@ describe Halation::Engine do
       FileUtils.rm_r(working_dir)
     }
 
-    specify "run" do
+    specify "run", is_long_running: true do
       subject.run
 
       Dir["#{working_dir}/*.tif"].sort.tap do |image_files|
@@ -176,7 +176,7 @@ describe Halation::Engine do
           end
         end
       end
-    end unless ENV["SKIP_LONG_TESTS"]
+    end
 
     specify "self.run" do
       engine_class = Halation::Engine

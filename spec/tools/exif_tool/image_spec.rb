@@ -22,7 +22,7 @@ describe Halation::ExifToolImage do
     let(:tag_value_1) { 100 }
     let(:tag_value_2) { 400 }
 
-    it "reads and writes a tag" do
+    it "reads and writes a tag", is_long_running: true do
       Halation::ExifToolImage.new(image_path).tap do |subject|
         subject[tag] = tag_value_1
         subject.save
@@ -38,5 +38,5 @@ describe Halation::ExifToolImage do
         subject[tag].should eq tag_value_2
       end
     end
-  end unless ENV["SKIP_LONG_TESTS"]
+  end
 end

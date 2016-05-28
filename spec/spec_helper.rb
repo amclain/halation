@@ -17,6 +17,7 @@ RSpec.configure do |c|
   
   # Only run tests marked with focus: true.
   c.filter_run_including focus: true
+  c.filter_run_excluding is_long_running: true if ENV["SKIP_LONG_TESTS"]
   c.run_all_when_everything_filtered = true
   
   # Abort after first failure.
@@ -25,5 +26,5 @@ RSpec.configure do |c|
   
   # Set output formatter and enable color.
   c.formatter = 'Fivemat'
-  c.color     = true
+  c.color = true
 end
