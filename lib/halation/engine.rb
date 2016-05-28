@@ -10,6 +10,11 @@ module Halation
     # Suppress output to stdout if true.
     attr_accessor :silent
 
+    # @see #run
+    def self.run(opts = {})
+      new(opts).run
+    end
+
     # @option opts [String] :config_path (nil)
     #   Override the config file that should be used.
     # @option opts [String] :working_dir (".")

@@ -1,14 +1,14 @@
 require 'mini_exiftool'
 
 describe Halation::Engine do
-  subject {
-    Halation::Engine.new(
-      working_dir: working_dir,
-      config_path: config_path,
-      image_extensions: image_extensions,
-      silent: true
-    )
-  }
+  subject { Halation::Engine.new(opts) }
+
+  let(:opts) {{
+    working_dir: working_dir,
+    config_path: config_path,
+    image_extensions: image_extensions,
+    silent: true,
+  }}
 
   let(:working_dir) { "spec/samples/set_1" }
   let(:config_path) { "#{working_dir}/config.yml" }
@@ -177,5 +177,19 @@ describe Halation::Engine do
         end
       end
     end unless ENV["SKIP_LONG_TESTS"]
+
+    specify "self.run" do
+      engine_class = Halation::Engine
+      engine_instance = Halation::Engine.new(opts)
+
+      allow(engine_class).to receive(:new) { engine_instance }
+      allow(engine_instance).to receive(:run)
+
+      expect(engine_class).to receive(:new).with(opts)
+      expect(engine_instance).to receive(:run).exactly(:once)
+
+      Halation::Engine.run(opts)
+    end
   end
+
 end
