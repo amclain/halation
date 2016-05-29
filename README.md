@@ -34,7 +34,7 @@ Halation is available as a Ruby gem.
 3. Open the [command line](http://www.addictivetips.com/windows-tips/windows-7-elevated-command-prompt-in-context-menu/)
     and type:
     
-```
+```text
     gem install halation
 ```
 
@@ -52,6 +52,7 @@ This is where your generic settings are stored, like your name, copyright info,
 and information about your cameras.
 
 ```yaml
+# Example config.yml
 ---
 artist: "Example User"
 copyright: "2016 Example User"
@@ -110,8 +111,8 @@ lenses:
 ```
 
 Now when we want to reference which lens was used when capturing a particular
-frame, all we have to do is specify the tag and Halation will fill
-in the correct Exif data for that lens.
+frame, all we have to do is specify the tag and Halation will fill in the
+correct Exif data for that lens when the image file is processed.
 
 ```yaml
 frames:
@@ -121,4 +122,93 @@ frames:
     lens: 65
   - number: 3
     lens: 110
+```
+
+## Processing A Roll
+
+Halation requires all of the image files for a roll of film to be in the same
+directory. The images should be named in ascending alphabetical order, with the
+first frame of the roll at the start of the list and the last frame at the end.
+This is typically the default when scanners save files. Halation will scan for
+tiff files (`.tif`, `.tiff`), which is the ideal format, as well as jpeg files
+(`.jpg`, `.jpeg`).
+
+This directory should also contain a `roll.yml` file, which specifies the data
+for each frame (image file) on the roll of film. A new `roll.yml` file can be
+generated in the current directory with the following command:
+
+```text
+    halation --new-roll
+```
+
+The data for the roll can then be entered into the file:
+
+```yaml
+# Example roll.yml
+---
+date: "2016-01-01"
+camera: "rz67"
+lens: 110
+iso: 100
+frames:
+  - number: 1
+    shutter: "1/125"
+    aperture: 8
+  - number: 2
+    shutter: "2"
+    lens: 65
+    aperture: 16
+  - number: 3
+    lens: 65
+    shutter: "0.5"
+    aperture: 16
+  - number: 4
+    lens: 65
+    shutter: "0.5"
+    aperture: 16
+  - number: 5
+    shutter: "1/250"
+    aperture: 4
+  - number: 6
+    shutter: "1/125"
+    aperture: 8
+  - number: 7
+    shutter: "1/125"
+    aperture: 8
+  - number: 8
+    shutter: "1/60"
+    aperture: 22
+  - number: 9
+    date: "2016-01-02"
+    shutter: "1/400"
+    aperture: 8
+    flash: yes
+  - number: 10
+    date: "2016-01-02"
+    shutter: "1/400"
+    aperture: 8
+    flash: yes
+```
+
+Default values can be set at the beginning of the file so that these settings
+don't have to be specified for each frame. For example, the roll of film has
+one ISO speed for all of the frames, so this can be specified at the top instead
+of for each individual frame.
+
+Values like the date are a little different, because maybe the whole roll was
+shot during the same day, or maybe it was shot over the course of several days.
+This is where the `roll.yml` file provides flexibility. Specifying `date` at the
+beginning of the file will make it the default date for all of the frames on the
+roll. If not all of the frames were shot on the same day, `date` can then be
+specified for each of the frames that have a different date (`9` and `10` in
+the example above). This concept works for most of the values.
+
+>A complete list of keywords are available in the [Halation API documentation](http://www.rubydoc.info/gems/halation),
+as well as in the [sample files](https://github.com/amclain/halation/tree/master/spec/samples).
+
+After all of the necessary values are entered into `roll.yml`, the images can
+be processed by running the following command:
+
+```text
+    halation
 ```
