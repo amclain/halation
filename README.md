@@ -71,7 +71,7 @@ cameras:
         model: "Z180mm f/4.5W-N"
         focal_length: 180
       - tag: 250
-        model: "M65mm f/4L-A"
+        model: "Z250mm f/4.5W"
         focal_length: 250
 ```
 
