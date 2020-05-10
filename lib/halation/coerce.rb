@@ -4,12 +4,12 @@ module Halation
 
     # @return [String, nil]
     def self.string(value)
-      value &&= value.to_s
+      value && value.to_s
     end
 
     # @return [Integer, nil]
     def self.integer(value)
-      value &&= value.to_i
+      value && value.to_i
     end
 
     # @return [Boolean]
