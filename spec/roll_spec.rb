@@ -5,7 +5,7 @@ describe Halation::Roll do
     it "has default values" do
       subject.artist.should be nil
       subject.copyright.should be nil
-      subject.date.should be nil
+      subject.date_captured.should be nil
       subject.camera.should be nil
       subject.lens.should be nil
       subject.iso.should be nil
@@ -27,7 +27,7 @@ describe Halation::Roll do
     it "has values" do
       subject.artist.should eq "Me"
       subject.copyright.should eq "2016 Me"
-      subject.date.should eq Time.parse("2016-01-02")
+      subject.date_captured.should eq Time.parse("2016-01-02")
       subject.camera.should eq "rz67"
       subject.lens.should eq "110"
       subject.iso.should eq 100
@@ -39,7 +39,7 @@ describe Halation::Roll do
         case i
         when 0
           frame.number.should eq 1
-          frame.date.should eq Time.parse("2016-02-03 01:02:03")
+          frame.date_captured.should eq Time.parse("2016-02-03 01:02:03")
           frame.lens.should eq "180"
           frame.focal_length.should be nil
           frame.shutter.should eq "1/250"
@@ -48,7 +48,7 @@ describe Halation::Roll do
           frame.orientation.should eq 1
         when 1
           frame.number.should eq 2
-          frame.date.should be nil
+          frame.date_captured.should be nil
           frame.lens.should eq "100-200"
           frame.focal_length.should eq 135
           frame.shutter.should eq "0.5"
@@ -57,7 +57,7 @@ describe Halation::Roll do
           frame.orientation.should eq 6
         when 2
           frame.number.should eq 3
-          frame.date.should be nil
+          frame.date_captured.should be nil
           frame.lens.should be nil
           frame.focal_length.should be nil
           frame.shutter.should eq "1/250"

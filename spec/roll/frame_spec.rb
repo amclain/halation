@@ -1,7 +1,7 @@
 describe Halation::Roll::Frame do
   let(:yaml) {{
     "number" => number,
-    "date" => date,
+    "date_captured" => date_captured,
     "lens" => lens,
     "focal_length" => focal_length,
     "shutter" => shutter,
@@ -14,7 +14,7 @@ describe Halation::Roll::Frame do
 
   shared_examples :frame do
     its(:number) { should eq number.to_i }
-    its(:date) { should eq Time.parse(date) }
+    its(:date_captured) { should eq Time.parse(date_captured) }
     its(:lens) { should eq lens.to_s }
     its(:focal_length) { should eq focal_length && focal_length.to_i }
     its(:shutter) { should eq shutter.to_s }
@@ -25,7 +25,7 @@ describe Halation::Roll::Frame do
 
   describe "prime lens" do
     let(:number) { 1 }
-    let(:date) { "2016-01-02" }
+    let(:date_captured) { "2016-01-02" }
     let(:lens) { 180 }
     let(:focal_length) { nil }
     let(:shutter) { 250 }
@@ -38,7 +38,7 @@ describe Halation::Roll::Frame do
 
   describe "zoom lens" do
     let(:number) { 1 }
-    let(:date) { "2016-01-02" }
+    let(:date_captured) { "2016-01-02" }
     let(:lens) { "100-200" }
     let(:focal_length) { 135 }
     let(:shutter) { 250 }

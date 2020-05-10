@@ -106,9 +106,10 @@ module Halation
 
     # @return [String] roll.yml default content
     def self.new_roll_content
+      today  = Time.now.strftime("%Y-%m-%d")
       output = <<YAML
 ---
-date: "2016-01-01"
+date_captured: "#{today}"
 camera: "rz67"
 lens: 110
 iso: 100
