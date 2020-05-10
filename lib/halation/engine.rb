@@ -68,7 +68,7 @@ module Halation
           exif["Artist"] = @roll.artist || @config.artist
           exif["Copyright"] = @roll.copyright || @config.copyright
           
-          date_created = Time.new(frame.date || @roll.date)
+          date_created = frame.date || @roll.date
           exif["DateTimeOriginal"] = date_created
           exif["CreateDate"] = date_created
 

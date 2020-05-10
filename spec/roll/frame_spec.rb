@@ -14,7 +14,7 @@ describe Halation::Roll::Frame do
 
   shared_examples :frame do
     its(:number) { should eq number.to_i }
-    its(:date) { should eq date.to_s }
+    its(:date) { should eq Time.parse(date) }
     its(:lens) { should eq lens.to_s }
     its(:focal_length) { should eq focal_length && focal_length.to_i }
     its(:shutter) { should eq shutter.to_s }

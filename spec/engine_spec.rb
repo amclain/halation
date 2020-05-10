@@ -42,7 +42,7 @@ describe Halation::Engine do
     let(:exif_results) {[
       {
         # Frame 1
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-02-03 01:02:03"),
         "LensModel" => "Z180mm f/4.5W-N",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -52,7 +52,7 @@ describe Halation::Engine do
       },
       {
         # Frame 2
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z100-200mm f/5.2W",
         "ExposureTime" => 0.5,
         "FNumber" => 8,
@@ -62,7 +62,7 @@ describe Halation::Engine do
       },
       {
         # Frame 3
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -72,7 +72,7 @@ describe Halation::Engine do
       },
       {
         # Frame 4
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -82,7 +82,7 @@ describe Halation::Engine do
       },
       {
         # Frame 5
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -92,7 +92,7 @@ describe Halation::Engine do
       },
       {
         # Frame 6
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -102,7 +102,7 @@ describe Halation::Engine do
       },
       {
         # Frame 7
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -112,7 +112,7 @@ describe Halation::Engine do
       },
       {
         # Frame 8
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -122,7 +122,7 @@ describe Halation::Engine do
       },
       {
         # Frame 9
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -132,7 +132,7 @@ describe Halation::Engine do
       },
       {
         # Frame 10
-        "DateTimeOriginal" => Time.new("2016-01-01"),
+        "DateTimeOriginal" => Time.parse("2016-01-02"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,

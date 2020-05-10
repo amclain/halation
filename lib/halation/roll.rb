@@ -9,7 +9,7 @@ module Halation
     attr_reader :artist
     # Copyright for the roll of film.
     attr_reader :copyright
-    # Default date for all frames (optional).
+    # Default date for all frames in ISO 8601 format (optional).
     attr_reader :date
     # Tag of the cameara used.
     attr_reader :camera
@@ -42,7 +42,7 @@ module Halation
       YAML.load_file(file_path).tap do |roll|
         @artist = Coerce.string(roll["artist"])
         @copyright = Coerce.string(roll["copyright"])
-        @date = Coerce.string(roll["date"])
+        @date = Coerce.date(roll["date"])
         @camera = Coerce.string(roll["camera"])
         @lens = Coerce.string(roll["lens"])
         @iso = Coerce.integer(roll["iso"])
