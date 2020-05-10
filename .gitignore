@@ -1,0 +1,6 @@
+.yardoc/
+coverage/
+doc/
+spec/samples/under_test/
+*.gem
+Gemfile.lock

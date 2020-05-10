@@ -1,5 +1,0 @@
-coverage/
-doc/
-\.gem$
-Gemfile.lock
-spec/samples/under_test
