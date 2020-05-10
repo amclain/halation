@@ -7,18 +7,6 @@
 
 Add Exif metadata to film photographs.
 
-## Issues, Bugs, Feature Requests
-
-Any bugs and feature requests should be reported on the GitHub issue tracker:
-
-https://github.com/amclain/halation/issues
-
-
-**Pull requests are preferred via GitHub.**
-
-Mercurial users can use [Hg-Git](http://hg-git.github.io/) to interact with
-GitHub repositories.
-
 ## Installation
 
 Halation is available as a Ruby gem.
