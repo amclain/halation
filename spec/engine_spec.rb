@@ -43,6 +43,7 @@ describe Halation::Engine do
       {
         # Frame 1
         "DateTimeOriginal" => Time.parse("2016-02-03 01:02:03"),
+        "CreateDate" => Time.parse("2016-02-15 08:09:10"),
         "LensModel" => "Z180mm f/4.5W-N",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -53,6 +54,7 @@ describe Halation::Engine do
       {
         # Frame 2
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z100-200mm f/5.2W",
         "ExposureTime" => 0.5,
         "FNumber" => 8,
@@ -63,6 +65,7 @@ describe Halation::Engine do
       {
         # Frame 3
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -73,6 +76,7 @@ describe Halation::Engine do
       {
         # Frame 4
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -83,6 +87,7 @@ describe Halation::Engine do
       {
         # Frame 5
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -93,6 +98,7 @@ describe Halation::Engine do
       {
         # Frame 6
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -103,6 +109,7 @@ describe Halation::Engine do
       {
         # Frame 7
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -113,6 +120,7 @@ describe Halation::Engine do
       {
         # Frame 8
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -123,6 +131,7 @@ describe Halation::Engine do
       {
         # Frame 9
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -133,6 +142,7 @@ describe Halation::Engine do
       {
         # Frame 10
         "DateTimeOriginal" => Time.parse("2016-01-02"),
+        "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -164,7 +174,7 @@ describe Halation::Engine do
             exif["Artist"].should eq artist
             exif["Copyright"].should eq copyright
             exif["DateTimeOriginal"].should eq exif_results[i]["DateTimeOriginal"]
-            exif["CreateDate"].should eq exif_results[i]["DateTimeOriginal"]
+            exif["CreateDate"].should eq exif_results[i]["CreateDate"]
             exif["Make"].should eq make
             exif["Model"].should eq model
             exif["ISO"].should eq iso

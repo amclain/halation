@@ -6,6 +6,7 @@ describe Halation::Roll do
       subject.artist.should be nil
       subject.copyright.should be nil
       subject.date_captured.should be nil
+      subject.date_scanned.should be nil
       subject.camera.should be nil
       subject.lens.should be nil
       subject.iso.should be nil
@@ -28,6 +29,7 @@ describe Halation::Roll do
       subject.artist.should eq "Me"
       subject.copyright.should eq "2016 Me"
       subject.date_captured.should eq Time.parse("2016-01-02")
+      subject.date_scanned.should eq Time.parse("2016-01-05")
       subject.camera.should eq "rz67"
       subject.lens.should eq "110"
       subject.iso.should eq 100
@@ -40,6 +42,7 @@ describe Halation::Roll do
         when 0
           frame.number.should eq 1
           frame.date_captured.should eq Time.parse("2016-02-03 01:02:03")
+          frame.date_scanned.should eq Time.parse("2016-02-15 08:09:10")
           frame.lens.should eq "180"
           frame.focal_length.should be nil
           frame.shutter.should eq "1/250"
