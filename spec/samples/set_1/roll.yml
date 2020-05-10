@@ -1,13 +1,13 @@
 ---
 artist: "Me"
 copyright: "2016 Me"
-date: "2016-01-01" # default
+date: "2016-01-02" # default
 camera: "rz67"
 lens: 110 # default
 iso: 100
 frames:
   - number: 1
-    date: "2016-01-02" # overridden
+    date: "2016-02-03 01:02:03" # overridden
     lens: 180 # overridden
     shutter: "1/250"
     aperture: 8

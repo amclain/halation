@@ -17,5 +17,10 @@ module Halation
       !!value
     end
 
+    # @return [Date, nil]
+    def self.date(value)
+      value && Time.parse(value)
+    end
+
   end
 end

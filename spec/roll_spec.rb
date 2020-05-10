@@ -27,7 +27,7 @@ describe Halation::Roll do
     it "has values" do
       subject.artist.should eq "Me"
       subject.copyright.should eq "2016 Me"
-      subject.date.should eq "2016-01-01"
+      subject.date.should eq Time.parse("2016-01-02")
       subject.camera.should eq "rz67"
       subject.lens.should eq "110"
       subject.iso.should eq 100
@@ -39,7 +39,7 @@ describe Halation::Roll do
         case i
         when 0
           frame.number.should eq 1
-          frame.date.should eq "2016-01-02"
+          frame.date.should eq Time.parse("2016-02-03 01:02:03")
           frame.lens.should eq "180"
           frame.focal_length.should be nil
           frame.shutter.should eq "1/250"

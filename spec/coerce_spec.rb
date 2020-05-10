@@ -32,4 +32,18 @@ describe Halation::Coerce do
       Coerce.integer(nil).should be nil
     end
   end
+
+  describe "a date" do
+    specify "from a string without a timestamp" do
+      Coerce.date("2016-02-03").should eq Time.parse("2016-02-03")
+    end
+
+    specify "from a string with a timestamp" do
+      Coerce.date("2016-02-03 01:02:03").should eq Time.parse("2016-02-03 01:02:03")
+    end
+
+    specify "from nil" do
+      Coerce.date(nil).should be nil
+    end
+  end
 end
