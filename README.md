@@ -14,7 +14,7 @@ Halation is available as a Ruby gem.
 1. Install [Ruby](https://www.ruby-lang.org) 2.1 or higher.
     * Windows: Use [RubyInstaller](http://rubyinstaller.org/downloads/).
     * Mac: Use [homebrew](https://www.ruby-lang.org/en/documentation/installation/#homebrew).
-    * Linux: Use [rbenv](https://github.com/sstephenson/rbenv#basic-github-checkout).
+    * Linux: Use [asdf](https://github.com/asdf-vm/asdf) or [rbenv](https://github.com/sstephenson/rbenv#basic-github-checkout).
     * [Additional installation instructions](https://www.ruby-lang.org/en/documentation/installation)
 
 2. Install [ExifTool](http://www.sno.phy.queensu.ca/~phil/exiftool/).
