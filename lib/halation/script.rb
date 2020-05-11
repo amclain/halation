@@ -21,61 +21,61 @@ module Halation
 
       options = {}
 
-      OptionParser.new { |opts|
-        opts.banner = "Usage: halation [options]"
+      OptionParser.new { |op|
+        op.banner = "Usage: halation [options]"
 
-        opts.on("-c", "--config=PATH", String, "Config file path") do |config_path|
+        op.on("-c", "--config=PATH", String, "Config file path") do |config_path|
           options[:config_path] = config_path
         end
 
-        opts.on("--dry", "Dry run") do
+        op.on("--dry", "Dry run") do
           options[:dry_run] = true
           # TODO: Implement
           raise NotImplementedError, "Dry run option is not yet implemented."
         end
 
-        opts.on("-h", "--help", "Print this help") do
-          output_stream.puts opts
+        op.on("-h", "--help", "Print this help") do
+          output_stream.puts op
           run_engine = false
           exit unless skip_exit
         end
 
-        opts.on("--new-config", "Generate a new config file") do |path|
+        op.on("--new-config", "Generate a new config file") do |path|
           # TODO: Implement
           raise NotImplementedError, "Generate config option is not yet implemented."
           run_engine = false
           exit unless skip_exit
         end
 
-        opts.on("--new-roll", "Generate a new roll.yml file") do
+        op.on("--new-roll", "Generate a new roll.yml file") do
           generate_new_roll
           run_engine = false
           exit unless skip_exit
         end
 
-        opts.on("-p", "--print-config", "Print the configuration settings") do
+        op.on("-p", "--print-config", "Print the configuration settings") do
           # TODO: Implement
           raise NotImplementedError, "Print config option is not yet implemented."
           run_engine = false
           exit unless skip_exit
         end
 
-        opts.on("-r", "--recursive", "Traverse into subdirectories") do
+        op.on("-r", "--recursive", "Traverse into subdirectories") do
           # TODO: Implement
           raise NotImplementedError, "Recursive option is not yet implemented."
         end
 
-        opts.on("--silent", "Suppress messages to stdout.") do
+        op.on("--silent", "Suppress messages to stdout.") do
           options[:silent] = true
         end
 
-        opts.on("-v", "--version", "Print the version information") do
+        op.on("-v", "--version", "Print the version information") do
           output_stream.puts "halation #{Halation::VERSION}"
           run_engine = false
           exit unless skip_exit
         end
       }.parse!(args)
-      
+
       Halation::Engine.run(options) if run_engine
     end
 
