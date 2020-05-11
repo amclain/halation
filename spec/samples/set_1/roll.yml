@@ -1,6 +1,6 @@
 ---
 artist: "Me"
-copyright: "{{ year_captured }} Me"
+copyright: "{{ year_captured }} {{ artist }}"
 date_captured: "2016-01-02" # default
 date_scanned: "2016-01-05" # default
 camera: "rz67"

@@ -87,10 +87,12 @@ module Halation
     private
 
     def template_copyright(config, roll, frame)
+      artist = roll.artist || config.artist
       date_captured = frame.date_captured || roll.date_captured
       year_captured = date_captured.strftime("%Y")
 
       copyright = (roll.copyright || config.copyright).clone
+      copyright.gsub!(Regexp.new("{{\s*artist\s*}}"), artist)
       copyright.gsub!(Regexp.new("{{\s*year_captured\s*}}"), year_captured)
     end
   end

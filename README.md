@@ -43,7 +43,7 @@ and information about your cameras.
 # Example config.yml
 ---
 artist: "Example User"
-copyright: "{{ year_captured }} Example User"
+copyright: "{{ year_captured }} {{ artist }}"
 cameras:
   - tag: "rz67"
     make: "Mamiya"
@@ -68,6 +68,7 @@ cameras:
 Templated values are supported within the YAML files using the moustache
 `{{` `}}` syntax.
 
+- `artist` - Available within the `copyright` field to substitute the artist name.
 - `year_captured` - Available within the `copyright` field to substitute the year
 the image was captured.
 

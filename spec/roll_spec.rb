@@ -27,7 +27,7 @@ describe Halation::Roll do
 
     it "has values" do
       subject.artist.should eq "Me"
-      subject.copyright.should eq "{{ year_captured }} Me"
+      subject.copyright.should eq "{{ year_captured }} {{ artist }}"
       subject.date_captured.should eq Time.parse("2016-01-02")
       subject.date_scanned.should eq Time.parse("2016-01-05")
       subject.camera.should eq "rz67"
