@@ -48,7 +48,7 @@ module Halation
         end
 
         op.on("--new-roll", "Generate a new roll.yml file") do
-          generate_new_roll
+          generate_new_roll(opts)
           run_engine = false
           exit unless skip_exit
         end
@@ -82,12 +82,17 @@ module Halation
     # Generate a new roll.yml file.
     # Copies "~/.halation/templates/roll.yml" if it exists, otherwise it uses
     # a default template.
-    def self.generate_new_roll
+    #
+    # @option opts [Boolean] :skip_exit (false)
+    #   Don't exit the program after calling a handler that would normally exit.
+    #   Used for unit testing.
+    def self.generate_new_roll(opts = {})
+      skip_exit = !!opts[:skip_exit]
       roll_path = "roll.yml"
 
       if File.exists?(roll_path)
-        output_stream.puts "A roll.yml file already exists in this directory."
-        return
+        STDERR.puts "A roll.yml file already exists in this directory."
+        exit 1 unless skip_exit
       end
 
       # TODO: Make this configurable from config.yml
