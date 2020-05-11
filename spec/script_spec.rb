@@ -51,6 +51,7 @@ describe Halation::Script do
 
     describe "(generated files)" do
       around { |test|
+        FileUtils.rm_r(working_dir) if Dir.exists?(working_dir)
         FileUtils.mkdir_p(working_dir)
         Dir.chdir(working_dir) { test.run }
         FileUtils.rm_r(working_dir)
@@ -71,6 +72,18 @@ describe Halation::Script do
 
           File.exists?(roll_path).should eq true
           Halation::Roll.new.load_file(roll_path)
+        end
+
+        specify "aborts if another roll exists" do
+          File.exists?(roll_path).should eq false
+
+          FileUtils.touch(roll_path)
+          File.exists?(roll_path).should eq true
+
+          allow(STDERR).to receive(:puts)
+          STDERR.should_receive(:puts).at_least(:once)
+
+          subject
         end
       end
     end
