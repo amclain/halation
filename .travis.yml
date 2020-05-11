@@ -1,7 +1,7 @@
 language: ruby
 rvm:
   - 2.1.10
-  - 2.2.4
+  - 2.7.1
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y libimage-exiftool-perl
