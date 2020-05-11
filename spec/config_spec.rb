@@ -25,7 +25,7 @@ describe Halation::Config do
     }
 
     let(:artist) { "Test Artist" }
-    let(:copyright) { "2016 Test Artist" }
+    let(:copyright) { "{{ year_captured }} Test Artist" }
 
     let(:cameras) {[
       {

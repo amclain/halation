@@ -34,7 +34,6 @@ describe Halation::Engine do
     let(:working_dir) { "spec/samples/under_test" }
 
     let(:artist) { "Me" }
-    let(:copyright) { "2016 Me" }
     let(:make) { "Mamiya" }
     let(:model) { "Mamiya RZ67 Pro II" }
     let(:iso) { 100 }
@@ -42,8 +41,9 @@ describe Halation::Engine do
     let(:exif_results) {[
       {
         # Frame 1
-        "DateTimeOriginal" => Time.parse("2016-02-03 01:02:03"),
-        "CreateDate" => Time.parse("2016-02-15 08:09:10"),
+        "Copyright" => "2017 Me",
+        "DateTimeOriginal" => Time.parse("2017-02-03 01:02:03"),
+        "CreateDate" => Time.parse("2017-02-15 08:09:10"),
         "LensModel" => "Z180mm f/4.5W-N",
         "ExposureTime" => 1.0/250,
         "FNumber" => 8,
@@ -53,6 +53,7 @@ describe Halation::Engine do
       },
       {
         # Frame 2
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z100-200mm f/5.2W",
@@ -64,6 +65,7 @@ describe Halation::Engine do
       },
       {
         # Frame 3
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -75,6 +77,7 @@ describe Halation::Engine do
       },
       {
         # Frame 4
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -86,6 +89,7 @@ describe Halation::Engine do
       },
       {
         # Frame 5
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -97,6 +101,7 @@ describe Halation::Engine do
       },
       {
         # Frame 6
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -108,6 +113,7 @@ describe Halation::Engine do
       },
       {
         # Frame 7
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -119,6 +125,7 @@ describe Halation::Engine do
       },
       {
         # Frame 8
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -130,6 +137,7 @@ describe Halation::Engine do
       },
       {
         # Frame 9
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -141,6 +149,7 @@ describe Halation::Engine do
       },
       {
         # Frame 10
+        "Copyright" => "2016 Me",
         "DateTimeOriginal" => Time.parse("2016-01-02"),
         "CreateDate" => Time.parse("2016-01-05"),
         "LensModel" => "Z110mm f/2.8W",
@@ -172,7 +181,7 @@ describe Halation::Engine do
 
           MiniExiftool.new(image_file, numerical: true).tap do |exif|
             exif["Artist"].should eq artist
-            exif["Copyright"].should eq copyright
+            exif["Copyright"].should eq exif_results[i]["Copyright"]
             exif["DateTimeOriginal"].should eq exif_results[i]["DateTimeOriginal"]
             exif["CreateDate"].should eq exif_results[i]["CreateDate"]
             exif["Make"].should eq make

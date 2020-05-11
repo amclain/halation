@@ -1,6 +1,6 @@
 ---
 artist: "Test Artist"
-copyright: "2016 Test Artist"
+copyright: "{{ year_captured }} Test Artist"
 cameras:
   - tag: "rz67"
     make: "Mamiya"
