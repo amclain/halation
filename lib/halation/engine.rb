@@ -66,7 +66,7 @@ module Halation
 
         ExifToolImage.new(_image_files[i]).tap do |exif|
           exif["Artist"] = @roll.artist || @config.artist
-          exif["Copyright"] = @roll.copyright || @config.copyright
+          exif["Copyright"] = template_copyright(@config, @roll, frame)
           exif["DateTimeOriginal"] = frame.date_captured || @roll.date_captured
           exif["CreateDate"] = frame.date_scanned || @roll.date_scanned
           exif["Make"] = camera.make
@@ -84,5 +84,16 @@ module Halation
       end
     end
 
+    private
+
+    def template_copyright(config, roll, frame)
+      artist = roll.artist || config.artist
+      date_captured = frame.date_captured || roll.date_captured
+      year_captured = date_captured.strftime("%Y")
+
+      copyright = (roll.copyright || config.copyright).clone
+      copyright.gsub!(Regexp.new("{{\s*artist\s*}}"), artist)
+      copyright.gsub!(Regexp.new("{{\s*year_captured\s*}}"), year_captured)
+    end
   end
 end
