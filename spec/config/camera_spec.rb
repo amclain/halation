@@ -36,5 +36,5 @@ describe Halation::Config::Camera do
     end
   end
 
-  shared_examples :to_s_is_human_readable
+  include_examples :to_s_is_human_readable
 end
