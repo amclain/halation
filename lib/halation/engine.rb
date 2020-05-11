@@ -67,11 +67,8 @@ module Halation
         ExifToolImage.new(_image_files[i]).tap do |exif|
           exif["Artist"] = @roll.artist || @config.artist
           exif["Copyright"] = @roll.copyright || @config.copyright
-          
-          date_created = frame.date || @roll.date
-          exif["DateTimeOriginal"] = date_created
-          exif["CreateDate"] = date_created
-
+          exif["DateTimeOriginal"] = frame.date_captured || @roll.date_captured
+          exif["CreateDate"] = frame.date_scanned || @roll.date_scanned
           exif["Make"] = camera.make
           exif["Model"] = camera.model
           exif["LensModel"] = lens.model

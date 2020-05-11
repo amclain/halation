@@ -6,8 +6,10 @@ module Halation
     class Frame
       # Frame number.
       attr_reader :number
-      # Date the frame was captured in ISO 8601 format.
-      attr_reader :date
+      # Date the frame was captured, in ISO 8601 format.
+      attr_reader :date_captured
+      # Date the frame was scanned (digitized), in ISO 8601 format.
+      attr_reader :date_scanned
       # Tag of the lens used.
       attr_reader :lens
       # Focal length of the lens, if not specified by the lens profile
@@ -33,7 +35,8 @@ module Halation
 
       def initialize(yaml)
         @number = Coerce.integer(yaml["number"])
-        @date = Coerce.date(yaml["date"])
+        @date_captured = Coerce.date(yaml["date_captured"])
+        @date_scanned = Coerce.date(yaml["date_scanned"])
         @lens = Coerce.string(yaml["lens"])
         @focal_length = Coerce.integer(yaml["focal_length"])
         @shutter = Coerce.string(yaml["shutter"])
